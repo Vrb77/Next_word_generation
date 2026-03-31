@@ -25,12 +25,10 @@ st.subheader("By Vaishnavi Badade")
 model = load_model("TextGenerationModel.keras")
 
 
-text=st.text_input("Review")
+text_input=st.text_input("Review")
 
 tokenizer = Tokenizer()
-tokenizer.fit_on_texts([text])
-total_words=len(tokenizer.word_index)+1
-print("Vocabulary Size:",total_words)
+
 
 # Reverse mapping : index -> word
 index_word = {i : word for word,i in tokenizer.word_index.items()}
@@ -88,6 +86,6 @@ def generate_text(seed_text, next_words=20):
 
     return output_text
 if submit:
-    generated_text=generate_text(text, next_words=15)
+    generated_text=generate_text(text_input, next_words=15)
    
     st.subheader(generated_text)
