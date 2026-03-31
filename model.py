@@ -25,7 +25,7 @@ st.subheader("By Vaishnavi Badade")
 model = load_model("TextGenerationModel.keras")
 
 
-text_input=st.text_input()
+text_input=st.text_input("text")
 
 tokenizer = Tokenizer()
 
