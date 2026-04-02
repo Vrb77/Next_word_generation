@@ -21,7 +21,7 @@ index_word = {i: word for word, i in tokenizer.word_index.items()}
 # ✅ Must match training value
 max_sequence_length = 6  # Change this to match your training
 
-def sample_with_temperature(preds, temperature=0.8, top_k=5):
+def sample_with_temperature(preds, temperature=0.5, top_k=10):
     preds = np.asarray(preds).astype("float64")
     top_indices = np.argsort(preds)[-top_k:]
     top_probs = preds[top_indices]
@@ -41,7 +41,7 @@ def generate_text(seed_text, next_words=20):
             padding='pre'
         )
         predicted_probs = model.predict(token_list, verbose=0)[0]
-        predicted_index = sample_with_temperature(predicted_probs, temperature=0.8, top_k=5)
+        predicted_index = sample_with_temperature(predicted_probs, temperature=0.5, top_k=10)
         next_word = index_word.get(predicted_index, "")
         if next_word in generated_words[-3:]:
             continue
