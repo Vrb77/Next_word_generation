@@ -5,7 +5,7 @@ from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from PIL import Image
 from pathlib import Path
-image = Image.open('Templates/word_generation.svg')
+image = Image.open('Templates/word_generation.jpg')
 st.set_page_config(
     page_title="Next words generation on amazon food reviews",
     page_icon=Image.open('Templates/Word_generation_icon.png'),
