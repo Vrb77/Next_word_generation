@@ -4,6 +4,7 @@ import numpy as np
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from PIL import Image
+import pathlib
 from pathlib import Path
 image = Image.open('Templates/word_generation.jpg')
 
