@@ -12,10 +12,16 @@ st.set_page_config(
     page_icon=Image.open('Templates/Word_generation_icon.png'),
 )
 st.set_page_config(page_title="Next words generation on amazon food reviews")
-st.title("Next words generation on amazon food reviews")
+st.title("🆕 Next words generation on amazon food reviews")
 st.image(image)
 st.subheader("By Vaishnavi Badade")
-
+# Function to load CSS from the 'assets' folder
+def load_css(file_path):
+    with open(file_path) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# Load the external CSS
+css_path = pathlib.Path("Templates/style.css")
+load_css(css_path)
 # Load model
 model = load_model("TextGenerationModel.keras")
 
@@ -58,7 +64,7 @@ def generate_text(seed_text, next_words=20):
     return output_text
 
 text_input = st.text_input("Enter some text to generate next words")
-submit = st.button("Generate next words")
+submit = st.button("Generate next words", key="green")
 
 if submit:
     if not text_input.strip():
