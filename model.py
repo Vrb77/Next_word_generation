@@ -13,7 +13,7 @@ st.set_page_config(
 )
 st.set_page_config(page_title="Next words generation on amazon food reviews")
 st.title("Next words generation on amazon food reviews")
-st.image(image)
+st.image(image, width="stretch")
 st.subheader("By Vaishnavi Badade")
 
 # Load model
