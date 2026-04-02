@@ -3,7 +3,13 @@ import pickle
 import numpy as np
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-
+from PIL import Image
+from pathlib import Path
+image = Image.open('Templates/word_generation.svg')
+st.set_page_config(
+    page_title="Next words generation on amazon food reviews",
+    page_icon=Image.open('Templates/Word_generation_icon.png'),
+)
 st.set_page_config(page_title="Next words generation on amazon food reviews")
 st.title("Next words generation")
 st.subheader("By Vaishnavi Badade")
@@ -49,7 +55,7 @@ def generate_text(seed_text, next_words=20):
         output_text += " " + next_word
     return output_text
 
-text_input = st.text_input("Enter seed text")
+text_input = st.text_input("Enter some text to generate next words")
 submit = st.button("Generate next words")
 
 if submit:
