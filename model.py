@@ -66,5 +66,5 @@ if submit:
     else:
         with st.spinner("Generating..."):
             generated_text = generate_text(text_input, next_words=15)
-        st.success("Generated Text:",generated_text)
-        
+        st.success("Generated Text")
+        st.write(generated_text)
